@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import EditPlate from "../pages/EditPlate";
-import ListPlates from "../pages/ListPlates";
+import EditPlate from "../pages/editPlate/EditPlate";
+import ListPlates from "../pages/listPlate/ListPlates";
+import NewPlate from "../pages/newPlate/NewPlate";
 
-import Login from "../pages/Login";
-import NewPlate from "../pages/NewPlate";
+import Login from "../pages/login/Login";
 
 const AppRoutes = () => {
   return (

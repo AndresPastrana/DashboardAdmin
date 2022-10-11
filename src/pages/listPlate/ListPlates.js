@@ -1,19 +1,18 @@
 import React from "react";
-import SideBar from "../components/SideBar";
-import Header from "../components/Header";
-
-const NewPlate = () => {
+import SideBar from "../../components/sidebar/SideBar";
+import Header from "../../components/header/Header";
+const ListPlates = () => {
   return (
     <div className="container">
       <SideBar />
       <main>
         <Header />
         <div className="body">
-          <h1>New Plate form</h1>
+        <h1>Table of products</h1>
         </div>
       </main>
     </div>
   );
 };
 
-export default NewPlate;
+export default ListPlates;

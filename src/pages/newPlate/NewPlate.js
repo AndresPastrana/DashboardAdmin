@@ -1,20 +1,19 @@
 import React from "react";
-import SideBar from "../components/SideBar";
-import Header from "../components/Header";
+import SideBar from "../../components/sidebar/SideBar";
+import Header from "../../components/header/Header";
 
-
-const EditPlate = () => {
+const NewPlate = () => {
   return (
     <div className="container">
       <SideBar />
       <main>
         <Header />
         <div className="body">
-          <h1>Edit Plate form</h1>
+          <h1>New Plate form</h1>
         </div>
       </main>
     </div>
   );
 };
 
-export default EditPlate;
+export default NewPlate;
