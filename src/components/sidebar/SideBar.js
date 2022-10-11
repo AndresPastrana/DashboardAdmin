@@ -8,7 +8,7 @@ const SideBar = () => {
     <div className="sidebar">
       <Top />
       <hr />
-      <Center />\
+      <Center />
       <hr />
       <Bottom />
     </div>

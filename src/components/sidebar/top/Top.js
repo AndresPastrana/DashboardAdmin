@@ -1,12 +1,22 @@
 import React from "react";
-
+import LogoutIcon from "@mui/icons-material/Logout";
+import Avatar from "@mui/material/Avatar/Avatar";
 const Top = () => {
+  const user = {
+    displayname: "Andres",
+  };
+  const handleLogut = () => {
+    console.log("Login out .....");
+  };
   return (
     <div className="top">
-      <div style={{ margin: "5px" }}>Image</div>
-      <div style={{ margin: "5px" }}>Name</div>
-      <div style={{ margin: "5px" }}>
-        <button>log out</button>
+      <div>
+        <Avatar className="avatar">{user.displayname[0]}</Avatar>
+      </div>
+
+      <div className="text">{user.displayname.toLocaleUpperCase()}</div>
+      <div className="btn_logout" onClick={handleLogut}>
+        <LogoutIcon />
       </div>
     </div>
   );

@@ -1,17 +1,43 @@
 .sidebar {
   align-items: center;
-  border-right: 0.2px solid gray;
   display: flex;
   flex: 1;
   flex-direction: column;
   height: 100vh;
+  justify-content: space-between;
 }
 .top {
   align-items: center;
   display: flex;
   width: 100%;
   height: 10%;
-  background-color: blanchedalmond;
+  justify-content: space-between;
+    
+  .avatar{
+    background-color: transparent;
+    color: black;
+    border: 2px $primary solid;
+  }
+
+  .userinfo {
+    margin: 5px;
+    border: solid 3px $primary;
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+  .btn_logout {
+    background-color: $primary;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    padding: 7px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.top > div {
+  margin: 0.3rem;
 }
 .center {
   width: 100%;
@@ -19,8 +45,8 @@
   background-color: aliceblue;
 }
 
-.bottom{
+.bottom {
   width: 100%;
-    height: 20%;
-    background-color: aquamarine;
+  height: 20%;
+  background-color: #535353;
 }
