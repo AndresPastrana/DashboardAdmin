@@ -1,13 +1,18 @@
 import React from "react";
-import Asaide from "../components/Asaide";
+import SideBar from "../components/SideBar";
 import Header from "../components/Header";
+
 
 const EditPlate = () => {
   return (
-    <div>
-      <Header />
-      <Asaide />
-      <h1>Edit Plate form</h1>
+    <div className="container">
+      <SideBar />
+      <main>
+        <Header />
+        <div className="body">
+          <h1>Edit Plate form</h1>
+        </div>
+      </main>
     </div>
   );
 };

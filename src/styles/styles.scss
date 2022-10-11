@@ -1,2 +1,7 @@
-@import './base/base';
-@import './base/settings';
+@import "./base/base";
+@import "./base/settings";
+
+@import "./components/sidebar";
+@import "./components/header";
+
+@import "./pages/listplates.scss";
