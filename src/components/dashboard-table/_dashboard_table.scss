@@ -1,0 +1,10 @@
+//   Styles
+.input{
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    &:focus-visible{
+        outline: none
+    }
+   };
