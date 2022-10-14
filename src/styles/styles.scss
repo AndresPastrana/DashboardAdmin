@@ -4,4 +4,5 @@
 @import "./components/sidebar";
 @import "./components/header";
 
-@import "./pages/listplates.scss";
+@import "../pages/listPlate/listplates";
+@import "../components/platesTable/TableRowInsert"

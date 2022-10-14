@@ -7,9 +7,7 @@ const SideBar = () => {
   return (
     <div className="sidebar">
       <Top />
-      <hr />
       <Center />
-      <hr />
       <Bottom />
     </div>
   );
