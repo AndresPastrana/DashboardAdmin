@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, TableCell, TableRow } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { border, color, padding } from "@mui/system";
 
 const TableRowInsert = () => {
   //States
@@ -55,8 +54,8 @@ const TableRowInsert = () => {
         />
       </TableCell>
       <TableCell>
-        <Button variant="outlined" endIcon={<AddIcon />}>
-          Agregar
+        <Button size="small" variant="outlined" fullWidth endIcon={<AddIcon />}>
+          ADD
         </Button>
       </TableCell>
     </TableRow>

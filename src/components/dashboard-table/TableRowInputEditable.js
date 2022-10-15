@@ -81,8 +81,10 @@ const TableRowInputEditable = ({ data }) => {
       </TableCell>
       <TableCell>
         <Button
+        fullWidth
+           size="small"
           endIcon={<DeleteForeverIcon />}
-          variant="contained"
+          variant="outlined"
           color="error"
           onClick={() => handleDelete(id)}
         >
