@@ -1,16 +1,24 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useContext } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "../pages/login/Login";
 import DashboardView from "../pages/dashboard/DashboardView";
+import { AuthContext } from "../context/Auth/AuthConetx";
 
 const AppRoutes = () => {
+  const isLogged = true;
+
   return (
     <div>
       <Routes>
         <Route path="/">
-          <Route index element={<Login />} />
+          <Route
+            index
+            element={
+              !isLogged ? <Login /> : <Navigate to="dashboard" replace={true} />
+            }
+          />
           <Route path="dashboard">
-            <Route index element={<DashboardView />} />
+            <Route index element={isLogged ? <DashboardView /> :<Navigate to='/'/>} />
             <Route path="*" element={<h1>Not Found</h1>} />
           </Route>
           <Route path="*" element={<h1>Not Found</h1>} />
