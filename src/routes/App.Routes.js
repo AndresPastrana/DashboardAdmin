@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "../pages/login/Login";
 import DashboardView from "../pages/dashboard/DashboardView";
-import { AuthContext } from "../context/Auth/AuthConetx";
+import { AuthContext } from "../context/Auth/AuthContext";
 
 const AppRoutes = () => {
-  const isLogged = true;
+  const {state} = useContext(AuthContext)
+
+  const isLogged = state.token;
+  console.log(isLogged);
 
   return (
     <div>

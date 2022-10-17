@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { AuthContext } from "./AuthConetx";
+import { AuthContext } from "./AuthContext";
 
 const authReducer = (state, action) => {
   switch (action.type) {
