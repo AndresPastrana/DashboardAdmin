@@ -1,18 +1,11 @@
-import React from "react";
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  
-} from "@mui/material";
-import Settings from "@mui/icons-material/Settings";
-
-import SearchBar from "./searchBar/SearchBar";
+import React, { useEffect } from "react";
+import { List } from "@mui/material";
 import ModalAddBussines from "./modalAddBussines/ModalAddBussines";
+import BussinesItem from "./List/ListItem/BussinesItem";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const bussines = useSelector((state) => state.dashboard.bussines);
   return (
     <div className="header">
       <h1>Admin Panel</h1>
@@ -21,7 +14,11 @@ const Header = () => {
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
         <div
-          style={{ overflowX: "auto", maxWidth: "600px", borderRadius: "50%" }}
+          style={{
+            overflowX: "auto",
+            maxWidth: "600px",
+            borderRadius: "50%",
+          }}
         >
           <List
             style={{
@@ -30,43 +27,13 @@ const Header = () => {
               alignItems: "center",
             }}
           >
-            <ListItem style={{ margin: "1rem" }} disablePadding>
-              <ListItemButton style={{ height: "80%", padding: "0" }}>
-                <ListItemIcon>
-                  <Settings />
-                </ListItemIcon>
-                <ListItemText primary="Pettit" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem style={{ margin: "1rem" }} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Settings />
-                </ListItemIcon>
-                <ListItemText primary="Pettit" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem style={{ margin: "1rem" }} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Settings />
-                </ListItemIcon>
-                <ListItemText primary="Pettit" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem style={{ margin: "1rem" }} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Settings />
-                </ListItemIcon>
-                <ListItemText primary="Pettit" />
-              </ListItemButton>
-            </ListItem>
+            {bussines.map(({ _id, name }) => (
+              <BussinesItem key={_id} name={name} id={_id} />
+            ))}
           </List>
         </div>
-        <ModalAddBussines/>
+        <ModalAddBussines />
       </div>
-
     </div>
   );
 };

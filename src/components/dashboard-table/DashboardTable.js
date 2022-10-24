@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -9,144 +8,12 @@ import {
   TableContainer,
   Paper,
 } from "@mui/material";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import TableRowInsert from "./TableRowInsert";
 import TableRowInputEditable from "./TableRowInputEditable";
 const DashboardTable = () => {
+  const subcategoryActive = null;
   // temporary
   const data = [
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: 1,
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: 2,
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
-    {
-      name: "value",
-      description: "This is a good product",
-      price: 10,
-      id: Math.random(),
-    },
     {
       name: "value",
       description: "This is a good product",
@@ -161,24 +28,29 @@ const DashboardTable = () => {
   }
   console.log(keys);
   return (
+    // TODO: Si no hay ninguna subcategoria activa mostrar una vista informativa
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
       <TableContainer sx={{ maxHeight: "70vh", marginTop: "20px" }}>
-        <Table className="table">
-          <TableHead>
-            <TableRow>
-              {keys.map((theadText) => (
-                <TableCell key={theadText}>{theadText.toUpperCase()}</TableCell>
+        {subcategoryActive && (
+          <Table className="table">
+            <TableHead>
+              <TableRow>
+                {keys.map((theadText) => (
+                  <TableCell key={theadText}>
+                    {theadText.toUpperCase()}
+                  </TableCell>
+                ))}
+                <TableCell>CHANGE</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRowInsert />
+              {data.map((plate) => (
+                <TableRowInputEditable key={plate.id} data={plate} />
               ))}
-              <TableCell>CHANGE</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRowInsert />
-            {data.map((plate) => (
-              <TableRowInputEditable key={plate.id} data={plate} />
-            ))}
-          </TableBody>
-        </Table>
+            </TableBody>
+          </Table>
+        )}
       </TableContainer>
     </Paper>
   );

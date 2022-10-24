@@ -10,7 +10,6 @@ const Icon = ({ icon }) => {
   iconsMap.set("food", <RestaurantMenuOutlinedIcon />);
   iconsMap.set("drink", <LocalBarIcon />);
   iconsMap.set("infusions", <EmojiFoodBeverageIcon />);
-  
 
   return iconsMap.get(icon);
 };
