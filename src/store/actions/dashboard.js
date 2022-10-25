@@ -122,6 +122,58 @@ export const loadBussinesData = ({ id, name }) => {
   };
 };
 
+export const addCategoryBD = (newCategory) => {
+  return async (dispatch, getState) => {
+    // Start Loading
+    Swal.fire({
+      title: "Loading...",
+      text: "Please Wait...",
+      allowOutsideClick: false,
+      willOpen: () => {
+        Swal.showLoading();
+      },
+      showConfirmButton: false,
+    });
+
+    const { auth, dashboard } = getState();
+    const { token } = auth;
+    const { id } = dashboard.activeBussines;
+    console.log(token, id, newCategory);
+
+    try {
+      const resp = await axios.post(
+        process.env.REACT_APP_CATEGORY,
+        { ...newCategory, negocio: id, icon: "new" },
+        {
+          headers: {
+            token,
+          },
+        }
+      );
+
+      if (resp.data.categoria) {
+        const cat = resp.data.categoria;
+        dispatch(addCategory({ ...cat }));
+        Swal.close();
+        Swal.fire({
+          title: "Saved !",
+          text: "New category inserted",
+          icon: "success",
+        });
+      } else {
+        throw new Error("Error al insertar la categoria");
+      }
+    } catch (error) {
+      Swal.close();
+      Swal.fire({
+        title: "Error",
+        text: "Error al insertar el producto",
+        icon: "error",
+      });
+    }
+  };
+};
+
 // Sync Actions
 export const setBussines = (bussines) => {
   return {
@@ -168,5 +220,12 @@ export const setCategories = (data) => {
   return {
     type: Types.setCategories,
     payload: [...data],
+  };
+};
+
+export const addCategory = (newCategory) => {
+  return {
+    type: Types.addCategory,
+    payload: { ...newCategory, subcategorias: [] },
   };
 };

@@ -26,6 +26,14 @@ export const dashboardReducer = (state = initialState, action) => {
         categories: action.payload,
       };
 
+    case Types.addCategory:
+      console.log("Triggering reducer");
+      console.log(action);
+      return {
+        ...state,
+        categories: [...state.categories, action.payload],
+      };
+
     case Types.setActiveSubcategory:
       console.log("Active Subcatgeory");
       console.log(action);

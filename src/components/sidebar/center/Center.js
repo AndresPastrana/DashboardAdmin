@@ -48,19 +48,19 @@ export default function NestedList() {
               </ListItemButton>
               <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                  {categories.map(({ id, name, icon, subcategorias }) => (
+                  {categories.map(({ _id, name, icon, subcategorias }) => (
                     <Category
-                      key={id}
+                      key={_id}
                       categoryIcon={icon}
                       categoryName={name}
                       subcategories={subcategorias}
                     />
                   ))}
                 </List>
+                <BtnAddCategory />
               </Collapse>
             </>
           )}
-          <BtnAddCategory />
         </List>
       </Paper>
     </div>
